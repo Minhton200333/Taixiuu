@@ -1,9 +1,3 @@
-document.getElementById('roll-button').addEventListener('click', playTaiXiu);
-
-function rollDice() {
-    return Math.floor(Math.random() * 6) + 1;
-}
-
 function playTaiXiu() {
     const dice1 = rollDice();
     const dice2 = rollDice();
@@ -11,6 +5,10 @@ function playTaiXiu() {
     const total = dice1 + dice2 + dice3;
     const result = total >= 11 ? 'Tài' : 'Xỉu';
 
+    document.getElementById('dice1').src = `images/dice${dice1}.png`;
+    document.getElementById('dice2').src = `images/dice${dice2}.png`;
+    document.getElementById('dice3').src = `images/dice${dice3}.png`;
+
     const resultDiv = document.getElementById('result');
-    resultDiv.innerHTML = `Xí ngầu: ${dice1}, ${dice2}, ${dice3} | Tổng: ${total} | Kết quả: ${result}`;
+    resultDiv.innerHTML = `Tổng: ${total} | Kết quả: ${result}`;
 }
